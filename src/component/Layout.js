@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { render } from '@testing-library/react';
 import Detail from '../page/detail/Detail'
 import Home from '../page/home/Home'
+import Cart from  '../page/cart/Cart'
 const Layout = ()=>{
         return(
             <Router>
@@ -11,6 +12,7 @@ const Layout = ()=>{
                 <Switch>
                     <Route path="/" exact component={() => <Home/>} />
                     <Route path="/detail" exact component={() => <Detail/>} />
+                    <Route path="/cart" exact component={() => <Cart/>} />
 
                     {/* <Route component={() => <NotFound/>} /> */}
                 </Switch>
