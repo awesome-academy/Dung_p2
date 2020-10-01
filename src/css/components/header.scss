@@ -10,6 +10,11 @@ header {
     border-bottom: 1px solid $green;
 }
 
+h4 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0.5rem !important;
+}
+
 .header__top {
     background-color: black;
     &--container {
@@ -50,7 +55,7 @@ header {
                 color: white;
             }
             i {
-                margin-top: 8px;
+                margin-top: 10px;
             }
             a {
                 text-decoration: none;
@@ -80,6 +85,7 @@ header {
             float: right;
             margin-top: 20px;
             &--hotline {
+                text-align: left;
                 margin-left: 1rem;
             }
             &--search {
@@ -114,6 +120,9 @@ header {
             &--cart {
                 float: right;
                 margin-top: 1.8rem;
+                a {
+                    color: $green;
+                }
                 i::before {
                     padding-right: 0.5rem;
                     font-size: 1.4rem;
@@ -220,15 +229,21 @@ header {
     #nav-check {
         display: none;
         &:checked~.header-nav-hide__nav-links {
-            height: 305px;
+            height: 330px;
         }
     }
 }
 
 @media (max-width:1200px) {
+    .header__content--search--hotline {
+        text-align: center;
+    }
     .header__background {
         .header__content--logo {
             background: url('../../img/logo-footer.png') no-repeat center;
+        }
+        & .header__content--search--hotline {
+            text-align: center;
         }
     }
     .header-navbar__menu {

@@ -7,7 +7,6 @@ import DetailInformation from './component/DetailInformation';
 import { useDispatch,useSelector } from 'react-redux'
 import {fetchCart, addToCart,fetchCartUser} from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
-import { FacebookShareButton, FacebookIcon } from 'react-share'
 import { FacebookProvider, Comments,ShareButton } from 'react-facebook';
 
 
@@ -16,20 +15,17 @@ const Detail = ()=>{
     const [count,setCount] = useState(1);
     const counts = useRef(null)
     const dispatch = useDispatch()
-    const users = JSON.parse(localStorage.getItem('logon'))
-    const listCartUser = useSelector(state=>state.cart.listCartUser)
     const urlProduct = process.env.REACT_APP_PRODUCTS
 
-    useEffect(() => {
-        dispatch(fetchCartUser(users.id))
-    }, [listCartUser])
     const onChange = ()=>{
         setCount(parseInt(counts.current.value));
     }
     useEffect(() => {
         dispatch(fetchCart())
     }, [])
+
     const addCart=(item)=>{
+        localStorage.removeItem('item-detail')
         dispatch(addToCart(item,count))
         setTimeout(() => {
             window.location.href='/'
